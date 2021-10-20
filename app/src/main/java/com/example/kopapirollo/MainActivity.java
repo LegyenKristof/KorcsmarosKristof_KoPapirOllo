@@ -1,7 +1,9 @@
 package com.example.kopapirollo;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -108,6 +110,43 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
+        if (pontEmber >= 3 || pontComputer >= 3){
+            jatekVege();
+        }
+    }
+
+    private void jatekVege(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(false);
+        builder.setMessage("Szeretne új játékot játszani?");
+        if (pontEmber > pontComputer){
+            builder.setTitle("Győzelem");
+        }
+        else{
+            builder.setTitle("Vereség");
+        }
+        builder.setNegativeButton("NEM", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finish();
+            }
+        });
+
+        builder.setPositiveButton("IGEN", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                ujJatek();
+            }
+        });
+        builder.create().show();
+    }
+
+    private void ujJatek(){
+        kepBeallitas(1, imageView1);
+        kepBeallitas(1, imageView2);
+        pontComputer = 0;
+        pontEmber = 0;
+        textView1.setText("Eredmény: Ember: 0 Computer: 0");
     }
 
     private void init(){
