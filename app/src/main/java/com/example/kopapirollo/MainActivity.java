@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ImageView imageView1, imageView2;
+    private ImageView imageView1, imageView2, gepElet1, gepElet2, gepElet3, jatekosElet1, jatekosElet2, jatekosElet3;
     private TextView textView1, textView2;
     private Button btn1, btn2, btn3;
     private int pontEmber, pontComputer, dontetlen;
@@ -60,16 +60,42 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    private void eletVesztes(int elet, ImageView imageView){
+
+    }
+
     private void gyozelem(){
         Toast.makeText(this, "Győzelem", Toast.LENGTH_SHORT).show();
         pontEmber++;
-        textView1.setText("Eredmény: Ember: " + pontEmber + " Computer: " + pontComputer);
+        switch (pontEmber){
+            case 1:
+                gepElet3.setImageResource(R.drawable.heart1);
+                break;
+            case 2:
+                gepElet2.setImageResource(R.drawable.heart1);
+                break;
+            case 3:
+                gepElet1.setImageResource(R.drawable.heart1);
+                break;
+        }
+//        textView1.setText("Eredmény: Ember: " + pontEmber + " Computer: " + pontComputer);
     }
 
     private void vereseg(){
         Toast.makeText(this, "Vereség", Toast.LENGTH_SHORT).show();
         pontComputer++;
-        textView1.setText("Eredmény: Ember: " + pontEmber + " Computer: " + pontComputer);
+        switch (pontComputer){
+            case 1:
+                jatekosElet3.setImageResource(R.drawable.heart1);
+                break;
+            case 2:
+                jatekosElet2.setImageResource(R.drawable.heart1);
+                break;
+            case 3:
+                jatekosElet1.setImageResource(R.drawable.heart1);
+                break;
+        }
+//        textView1.setText("Eredmény: Ember: " + pontEmber + " Computer: " + pontComputer);
     }
 
     private void dontetlen(){
@@ -148,14 +174,20 @@ public class MainActivity extends AppCompatActivity {
         pontComputer = 0;
         pontEmber = 0;
         dontetlen = 0;
-        textView1.setText("Eredmény: Ember: 0 Computer: 0");
+//        textView1.setText("Eredmény: Ember: 0 Computer: 0");
         textView2.setText("Döntetlenek száma: 0");
+        jatekosElet1.setImageResource(R.drawable.heart2);
+        jatekosElet2.setImageResource(R.drawable.heart2);
+        jatekosElet3.setImageResource(R.drawable.heart2);
+        gepElet1.setImageResource(R.drawable.heart2);
+        gepElet2.setImageResource(R.drawable.heart2);
+        gepElet3.setImageResource(R.drawable.heart2);
     }
 
     private void init(){
         imageView1 = findViewById(R.id.imageView1);
         imageView2 = findViewById(R.id.imageView2);
-        textView1 = findViewById(R.id.textView1);
+//        textView1 = findViewById(R.id.textView1);
         textView2 = findViewById(R.id.textView2);
         btn1 = findViewById(R.id.btn1);
         btn2 = findViewById(R.id.btn2);
@@ -163,5 +195,11 @@ public class MainActivity extends AppCompatActivity {
         pontEmber = 0;
         pontComputer = 0;
         dontetlen = 0;
+        jatekosElet1 = findViewById(R.id.jatekosElet1);
+        jatekosElet2 = findViewById(R.id.jatekosElet2);
+        jatekosElet3 = findViewById(R.id.jatekosElet3);
+        gepElet1 = findViewById(R.id.gepElet1);
+        gepElet2 = findViewById(R.id.gepElet2);
+        gepElet3 = findViewById(R.id.gepElet3);
     }
 }
