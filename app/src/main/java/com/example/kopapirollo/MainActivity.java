@@ -14,7 +14,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     private ImageView imageView1, imageView2;
-    private TextView textView1;
+    private TextView textView1, textView2;
     private Button btn1, btn2, btn3;
     private int pontEmber, pontComputer, dontetlen;
 
@@ -75,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
     private void dontetlen(){
         Toast.makeText(this, "Döntetlen", Toast.LENGTH_SHORT).show();
         dontetlen++;
+        textView2.setText("Döntetlenek száma: " + dontetlen);
     }
 
     private void mutat(int valasztas){
@@ -146,15 +147,21 @@ public class MainActivity extends AppCompatActivity {
         kepBeallitas(1, imageView2);
         pontComputer = 0;
         pontEmber = 0;
+        dontetlen = 0;
         textView1.setText("Eredmény: Ember: 0 Computer: 0");
+        textView2.setText("Döntetlenek száma: 0");
     }
 
     private void init(){
         imageView1 = findViewById(R.id.imageView1);
         imageView2 = findViewById(R.id.imageView2);
         textView1 = findViewById(R.id.textView1);
+        textView2 = findViewById(R.id.textView2);
         btn1 = findViewById(R.id.btn1);
         btn2 = findViewById(R.id.btn2);
         btn3 = findViewById(R.id.btn3);
+        pontEmber = 0;
+        pontComputer = 0;
+        dontetlen = 0;
     }
 }

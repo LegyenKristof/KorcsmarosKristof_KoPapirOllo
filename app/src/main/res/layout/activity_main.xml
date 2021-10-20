@@ -8,6 +8,13 @@
     android:orientation="vertical"
     android:gravity="center">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Döntetlenek száma: 0"
+        android:textSize="12pt"
+        android:id="@+id/textView2"/>
+
     <ImageView
         android:layout_width="250px"
         android:layout_height="250px"
